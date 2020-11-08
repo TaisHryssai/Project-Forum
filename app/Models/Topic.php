@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
+
+    /**
+    * @var array
+    */
+    protected $fillable = [
+        'title', 'content'
+    ];
 }

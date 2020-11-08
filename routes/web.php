@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/', ['App\Http\Controllers\UserController', 'new'])->name('new.user');
-Route::post('/', ['App\Http\Controllers\UserController', 'create'])->name('create.user');
-Route::get('/signOut', ['App\Http\Controllers\UserController', 'logout'])->name('logout.user');
+Route::get('/user', ['App\Http\Controllers\UserController', 'new'])->name('new.user');
+Route::post('/user', ['App\Http\Controllers\UserController', 'create'])->name('create.user');
+//Route::get('/signOut', ['App\Http\Controllers\UserController', 'logout'])->name('logout.user');
 
 
-Route::get('/topics', ['App\Http\Controllers\TopicController', 'index'])->name('index.topic');
-Route::get('/topic/new', ['App\Http\Controllers\TopicController', 'new'])->name('new.topic');
-Route::post('/topic/new', ['App\Http\Controllers\TopicController', 'create'])->name('create.topic');
+Route::get('/', ['App\Http\Controllers\TopicController', 'index'])->name('index.topic');
+Route::get('/topic/new/{id}/user', ['App\Http\Controllers\TopicController', 'new'])->name('new.topic');
+Route::post('/topic/new/{id}/user', ['App\Http\Controllers\TopicController', 'create'])->name('create.topic');
 Route::get('/topic/show', ['App\Http\Controllers\TopicController', 'show'])->name('show.topic');
 
 Route::get('/topic/response', ['App\Http\Controllers\ResponseController', 'new'])->name('new.response');

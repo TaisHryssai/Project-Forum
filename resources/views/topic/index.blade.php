@@ -4,11 +4,11 @@
 @section('content')
 
 
-      <a href="" class="btn btn-outline-primary d-block" style="margin-left: 75%">
+      <a href="{{route('new.user')}}" class="btn btn-outline-primary d-block" style="margin-left: 75%">
         <i class="fas fa-plus"></i>
         Adicionar Tópico
       </a>
-<table class="table" style="">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">Tópico</th>

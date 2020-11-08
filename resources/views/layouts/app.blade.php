@@ -28,10 +28,12 @@
         <div class="row mt-5">
           <div class="col-md-12 col-lg-12">
 
-            <div class="card" id="main-card">
+            <div class="card" id="main-card" style="margin-top: 5%;">
               <div class="card-header card-color">
                 <h1 class="page-title mb-3">
-                  @yield('title')
+                <span class="d-lg-block mt-1 text-muted font-weight-bold">
+                    @yield('title')
+                </span>    
                 </h1>
               </div>
 

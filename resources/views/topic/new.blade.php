@@ -3,7 +3,7 @@
 @section('title', 'Novo Tópico')
 @section('content')
 
-<form action="" method="POST"  novalidate enctype="multipart/form-data">
+<form action="{{route('create.topic', $user->id)}}" method="POST"  novalidate enctype="multipart/form-data">
     @csrf
 
         @component('components.form.input_text', ['field'    => 'title',
@@ -18,23 +18,33 @@
                                               'model'    => 'topic',
                                               'required' => true,
                                               'errors'   => $errors]) @endcomponent
+                                              <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
 
-        @component('components.form.input_text', ['field'    => 'keywords',
-                                              'label'    => 'Palavras-Chave',
-                                              'placeholder' => 'Ex: youtube, linux',
-                                              'model'    => 'ask',
-                                              'required' => true,
-                                              'errors'   => $errors]) @endcomponent
-
-        @component('components.form.input_file', ['field'    => 'attachment',
-                                              'model'    => 'ask',
-                                              'required' => false,
-                                              'errors'   => $errors]) @endcomponent
-
-        <a class="btn btn-outline-primary" href="">Voltar</a>
-
-        <button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
+<button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
 
 </form>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Adicionar Palavras-Chave
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+@include('topic._form_keyword')
+  </div>
+</div>
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#attachments" role="button" aria-expanded="false" aria-controls="attachments">
+    Adicionar Anexos
+  </a>
+</p>
+<div class="collapse" id="attachments">
+  <div class="card card-body">
+@include('topic._form_attachments')
+  </div>
+</div>
+
+
 
 @endsection

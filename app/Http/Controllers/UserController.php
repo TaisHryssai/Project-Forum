@@ -11,7 +11,7 @@ class UserController extends Controller
     public function new()
     {
     	$user = new User();
-    	return view('identification', compact($user));
+    	return view('topic.identification', compact($user));
     }
 
     public function create(Request $request)
@@ -22,22 +22,15 @@ class UserController extends Controller
             'name'       => 'required',
         ]);
 
-
-		if (User::where('name', '=', $request->get('name'))->exists()) {
-           return redirect()->route('index.topic')->with('success', 'Login efetuado com sucesso');
-
-		}else
-
     	$user = new User($data);
 
         if ($validator->fails()) {
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
-            return view('identification', compact('user'))->withErrors($validator);
+            return view('topic.identification', compact('user'))->withErrors($validator);
         }
 
         $user->save();
-
-        return redirect()->route('index.topic')->with('success', 'Bem vindo');
+        return redirect()->route('new.topic', $user)->with('success', 'Identificação realizada com sucesso');
     }
 
     public function logout()
