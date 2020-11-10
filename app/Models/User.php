@@ -21,21 +21,19 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function topics()
+    {
+        return $this->hasMany(Topic::class, 'user_id');
+    }
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function responses()
+    {
+        return $this->hasMany(Response::class, 'user_id');
+    }
+
 }

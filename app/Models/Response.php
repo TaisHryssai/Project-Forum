@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Topic extends Model
+class Response extends Model
 {
     use HasFactory;
-
-    /**
+     /**
     * @var array
     */
     protected $fillable = [
-        'title', 'content', 'user_id'
+        'content', 'user_id'
     ];
 
     /**
@@ -27,18 +26,8 @@ class Topic extends Model
     /**
     * @return \Illuminate\Database\Eloquent\Relations\HasMany
     */
-    public function keywords()
-    {
-        return $this->hasMany(Keyword::class, 'topic_id');
-    }
-
-    /**
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
     public function attachments()
     {
-        return $this->hasMany(Attachment::class, 'topic_id');
+        return $this->hasMany(Attachment::class, 'response_id');
     }
-
-
 }
