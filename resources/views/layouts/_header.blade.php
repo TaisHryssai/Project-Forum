@@ -1,7 +1,7 @@
 <div class="fixed-top header py-2" style="background-color: white;">
   <div class="container-fluid">
     <div class="d-flex">
-      <a class="" href="{{route('index.topic')}}">
+      <a class="" href="">
       <img src="{{ asset('assets/images/forum-icon.png') }}" class="header-brand-img" alt="tabler logo" style="width: 15%;">
       </a>
       <div class="d-flex order-lg-2 ml-auto">
@@ -14,8 +14,6 @@
             </span>
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-            <a class="dropdown-item" href="{{route('index.topic')}}"> <i class="dropdown-icon far fa-user"></i>  Tópicos </a>
-            <a class="dropdown-item" href=""> <i class="dropdown-icon far fa-user"></i>  Sair </a>
             </a>
           </div>
         </div>

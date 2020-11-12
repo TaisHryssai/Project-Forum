@@ -10,37 +10,16 @@ use Illuminate\Support\Facades\Validator;
 
 class TopicController extends Controller
 {
-	public function createUser(Request $request)
-    {
-    	$data = $request->all();
-
-    	$validator = Validator::make($data, [
-            'name'       => 'required',
-        ]);
-
-    	$user = new User($data);
-
-        if ($validator->fails()) {
-            $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
-            return view('topic.identification', compact('user'))->withErrors($validator);
-        }
-
-        $user->save();
-        return redirect()->route('new.topic', $user)->with('success', 'Identificação realizada com sucesso');
-    }
-
-	// mostrar todos os topicos do mais novop  para o mais antigo
 	public function index()
 	{
 		$topics = Topic::all();
-		return view('topic.index', compact('topics'));
+        return view('topic.index', compact('topics'));
 	}
 
-
-	// id do usuario pra fazer ligamento do topico com usuário
     public function new($id)
     {
-    	$user = User::find($id);
+        $user = User::find($id);
+		$topic = new Topic();
     	return view('topic.new', compact('user'));
 	}
 	
@@ -73,8 +52,7 @@ class TopicController extends Controller
                 $data[] = $name;  
             }
         }
-        
-        
+    
         $topic->attachments = json_encode($data);
         $topic->title = $request->title;
         $topic->content = $request->content;
@@ -86,13 +64,12 @@ class TopicController extends Controller
         return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
 	}
 
-    // mostrar dados do topico
     public function show($id)
     {
-		$topics = Topic::all();
 		$topic = Topic::find($id);
+        $user = $topic->user;
 		$response = Response::find($id);
 		
-        return view('topic.show', compact('topic', 'response', 'topics'));
+        return view('topic.show', compact('topic', 'response', 'user'));
     }
 }

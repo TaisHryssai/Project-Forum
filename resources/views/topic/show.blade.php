@@ -24,7 +24,7 @@
 @each('response._response_row', $topic->responses, 'response')
 
 
-<a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
+<a class="btn btn-outline-primary" href="{{route('index.topic', $user->id)}}">Voltar</a>
 
 <a class="btn btn-outline-success" href="{{route('new.user.response', $topic->id)}}" style="margin-left:88%">Responder Tópico</a>
 

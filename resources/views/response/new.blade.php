@@ -3,7 +3,6 @@
 @section('title', 'Novo Tópico')
 @section('content')
 
-
 <div class="card mb-5">
   <h5 class="card-header card-color">{{ $topic->title }}</h5>
   <div class="card-body">
@@ -20,7 +19,7 @@
 </div>
 
 
-<form action="{{route('create.response', $topic->id)}}" method="POST" novalidate enctype="multipart/form-data">
+<form action="{{route('create.response', ['user_id' => $user->id, 'id' => $topic->id])}}" method="POST" novalidate enctype="multipart/form-data">
   @csrf
 
   @component('components.form.input_textarea', ['field' => 'content',

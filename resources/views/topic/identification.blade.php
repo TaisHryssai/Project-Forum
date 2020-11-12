@@ -16,6 +16,5 @@
         <button type="submit" class="btn btn-outline-secondary">Cadastrar Identificação</button>
 
 </form>
-<a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
 
 @endsection

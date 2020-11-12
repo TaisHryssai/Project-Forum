@@ -31,7 +31,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect()->route('new.topic', $user)->with('success', 'Identificação realizada com sucesso');
+        return redirect()->route('new.topic', $user->id)->with('success', 'Identificação realizada com sucesso');
     }
 
     public function newUser($id)
@@ -58,7 +58,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect()->route('new.response', $id)->with('success', 'Identificação realizada com sucesso');
+        return redirect()->route('new.response', ['user_id' => $user->id, 'id' => $topic->id])->with('success', 'Identificação realizada com sucesso');
     }
 
     public function logout()

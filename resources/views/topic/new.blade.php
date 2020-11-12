@@ -42,7 +42,7 @@
 
 
 
-    <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
+    <a class="btn btn-outline-primary" href="{{route('index.topic', $user->id)}}">Voltar</a>
 
     <button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
 

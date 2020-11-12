@@ -6,25 +6,27 @@ use App\Models\Response;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ResponseController extends Controller
 {
     // id do usuario pra fazer ligamento do topico com usuário
-    public function new($id)
+    public function new($id, $topic_id)
     {
-        $topic = Topic::find($id);
-        return view('response.new', compact('topic'));
+        $user = User::find($id);
+        $topic = Topic::find($topic_id);
+        $response = new Response();
+        return view('response.new', compact('topic', 'user'));
     }
 
-    public function create(Request $request, $id)
+    public function create(Request $request, $id, $topic_id)
 	{
 		$datas = $request->all();
 		$user = User::find($id);
-		$topic = Topic::find($id);
-		$reponse = new Response();
-
-
+		$topic = Topic::find($topic_id);
+        $reponse = new Response();
+        
 		$validator = Validator::make($datas, [
 			'content' => 'required',
 			'attachments.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
@@ -41,7 +43,7 @@ class ResponseController extends Controller
             foreach($request->file('attachments') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path('images'), $name);  // your folder path
+                $image->move(public_path('images'), $name);
                 $data[] = $name;  
             }
         }

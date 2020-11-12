@@ -18,15 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', ['App\Http\Controllers\UserController', 'new'])->name('new.user');
 Route::post('/user', ['App\Http\Controllers\UserController', 'create'])->name('create.user');
 
-
 Route::get('/', ['App\Http\Controllers\TopicController', 'index'])->name('index.topic');
-Route::get('/topic/new/{id}/user', ['App\Http\Controllers\TopicController', 'new'])->name('new.topic');
-Route::post('/topic/new/{id}/user', ['App\Http\Controllers\TopicController', 'create'])->name('create.topic');
-Route::get('/topic/show/{id}', ['App\Http\Controllers\TopicController', 'show'])->name('show.topic');
-
+Route::get('/user/{id}/topic/new', ['App\Http\Controllers\TopicController', 'new'])->name('new.topic');
+Route::post('/user/{id}/topic/new', ['App\Http\Controllers\TopicController', 'create'])->name('create.topic');
+Route::get('/user/topic/{id}/show', ['App\Http\Controllers\TopicController', 'show'])->name('show.topic');
 
 Route::get('/topic/{id}/response/user', ['App\Http\Controllers\UserController', 'newUser'])->name('new.user.response');
 Route::post('/topic/{id}/response/user', ['App\Http\Controllers\UserController', 'createUser'])->name('create.user.response');
 
-Route::get('/topic/response/{id}', ['App\Http\Controllers\ResponseController', 'new'])->name('new.response');
-Route::post('/topic/response/{id}', ['App\Http\Controllers\ResponseController', 'create'])->name('create.response');
+Route::get('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'new'])->name('new.response');
+Route::post('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'create'])->name('create.response');
