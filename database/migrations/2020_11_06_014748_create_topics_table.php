@@ -17,6 +17,8 @@ class CreateTopicsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
+            $table->string('keywords')->nullable();
+            $table->string('attachments')->nullable();
             $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')
                     ->references('id')

@@ -21,19 +21,19 @@ class User extends Authenticatable
     ];
 
     /**
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    * @return \Illuminate\Database\Eloquent\Relations\HasOne
     */
-    public function topics()
+    public function topic()
     {
-        return $this->hasMany(Topic::class, 'user_id');
+        return $this->hasOne(Topic::class, 'user_id');
     }
 
     /**
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    * @return \Illuminate\Database\Eloquent\Relations\hasOne
     */
-    public function responses()
+    public function response()
     {
-        return $this->hasMany(Response::class, 'user_id');
+        return $this->hasOne(Response::class, 'user_id');
     }
 
 }

@@ -12,7 +12,7 @@ class Response extends Model
     * @var array
     */
     protected $fillable = [
-        'content', 'user_id'
+        'content', 'attachments', 'topic_id', 'user_id'
     ];
 
     /**
@@ -24,10 +24,10 @@ class Response extends Model
     }
 
     /**
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
     */
-    public function attachments()
+    public function topic()
     {
-        return $this->hasMany(Attachment::class, 'response_id');
+        return $this->belongsTo(Topic::class, 'topic_id');
     }
 }

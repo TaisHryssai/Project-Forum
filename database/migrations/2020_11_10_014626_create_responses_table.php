@@ -16,10 +16,17 @@ class CreateResponsesTable extends Migration
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
             $table->string('content');
+            $table->string('keywords')->nullable();
+            $table->string('attachments');
             $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
+                    ->onDelete('cascade');
+            $table->unsignedBigInteger('topic_id')->index();
+            $table->foreign('topic_id')
+                    ->references('id')
+                    ->on('topics')
                     ->onDelete('cascade');
             $table->timestamps();
         });

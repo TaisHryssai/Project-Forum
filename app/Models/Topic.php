@@ -13,7 +13,7 @@ class Topic extends Model
     * @var array
     */
     protected $fillable = [
-        'title', 'content', 'user_id'
+        'title', 'content', 'keywords', 'attachments', 'user_id'
     ];
 
     /**
@@ -27,18 +27,8 @@ class Topic extends Model
     /**
     * @return \Illuminate\Database\Eloquent\Relations\HasMany
     */
-    public function keywords()
+    public function responses()
     {
-        return $this->hasMany(Keyword::class, 'topic_id');
+        return $this->hasMany(Response::class, 'topic_id');
     }
-
-    /**
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
-    public function attachments()
-    {
-        return $this->hasMany(Attachment::class, 'topic_id');
-    }
-
-
 }

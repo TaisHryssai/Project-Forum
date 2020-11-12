@@ -4,21 +4,28 @@
 @section('content')
 
 <div class="card mb-5">
-  <h5 class="card-header">Titulo Aqui</h5>
+  <h5 class="card-header">{{ $topic->title }}</h5>
   <div class="card-body">
-    <span>Usuário:Nome do usuario - Data: data com hora</span>
+    <span>Usuário: {{ $topic->user->name }} - Data: {{ $topic->created_at->format('d/m/Y H:i') }}</span>
     <h4 class="card-title">Descrição:</h4>
-    <p class="card-text">Conteudo do topico</p>
+    <p class="card-text">{{ $topic->content }}</p>
+    <strong> <span>Palavras-chave: </strong> {{ $topic->keywords }}</span>
     <p class="card-text">Anexos: <a href=""></a></p>
-    <span>Palavras-chave: </span>
+    <?php foreach (json_decode($topic->attachments) as $picture) { ?>
+      <img src="{{ asset('/images/'.$picture) }}" style="height:120px; width:200px" />
+      <a href="">{{$picture}}</a>
+    <?php } ?>
   </div>
 </div>
 
 
 <h3>Respostas:</h3>
 
+@each('response._response_row', $topic->responses, 'response')
+
+
 <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
 
-<a class="btn btn-outline-success" href="" style="">Responder Tópico</a>
+<a class="btn btn-outline-success" href="{{route('new.user.response', $topic->id)}}" style="margin-left:88%">Responder Tópico</a>
 
 @endsection
