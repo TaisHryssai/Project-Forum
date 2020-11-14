@@ -1,39 +1,47 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--Icons-->
-    <script src="https://kit.fontawesome.com/826671e166.js" crossorigin="anonymous"></script>
+  <!--Icons-->
+  <script src="https://kit.fontawesome.com/826671e166.js" crossorigin="anonymous"></script>
 
-    <!-- Scripts -->
-    <script src="{{ mix('/js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <!-- Styles -->
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+  <!-- jQuery and JS bundle w/ Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> defer</script>
+
+  <script src="{{ mix('/js/app.js') }}" ></script>
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
-<body  style="background-color: #F8F9F9">
+
+<body style="background-color: #F8F9F9">
   <div id="app" class="page">
     <div class="page-main">
       <div class="container-fluid m-0">
-          @include('layouts/_header')
+        @include('layouts/_header')
         <div class="row mt-5">
           <div class="col-md-12 col-lg-12">
 
             <div class="card" id="main-card" style="margin-top: 5%;">
               <div class="card-header card-color">
                 <h1 class="page-title mb-3">
-                <span class="d-lg-block mt-1 text-muted font-weight-bold">
+                  <span class="d-lg-block mt-1 text-muted font-weight-bold">
                     @yield('title')
-                </span>    
+                  </span>
                 </h1>
               </div>
 
@@ -48,4 +56,5 @@
     </div>
   </div>
 </body>
+
 </html>

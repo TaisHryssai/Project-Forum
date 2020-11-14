@@ -12,8 +12,9 @@ class TopicController extends Controller
 {
 	public function index()
 	{
-		$topics = Topic::all();
-        return view('topic.index', compact('topics'));
+        $search = Request()->term;
+        $topics = Topic::search($search);
+        return view('topic.index')->with('topics', $topics);
 	}
 
     public function new($id)

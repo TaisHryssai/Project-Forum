@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'pt_BR',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\PrettyPaginationServiceProvider::class,
 
     ],
 

@@ -4,6 +4,8 @@
 		<h4 class="card-title">Resposta:</h4>
         <p class="card-text">{{$response->content}}</p>
 		<?php foreach (json_decode($response->attachments) as $picture) { ?>
+      <img src="{{ asset('/images/'.$picture) }}" style="height:120px; width:200px" />
+      <a href="">{{$picture}}</a>
     <?php } ?>
 	</div>
 </div>

@@ -37265,6 +37265,18 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/config/js/namespace.js":
+/*!******************************************!*\
+  !*** ./resources/config/js/namespace.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.SMSemec = {};
+window.SMSemec.classes = {};
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37273,6 +37285,12 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ../config/js/namespace */ "./resources/config/js/namespace.js");
+
+__webpack_require__(/*! ./new_input */ "./resources/js/new_input.js");
+
+__webpack_require__(/*! ../lib/submit_search */ "./resources/lib/submit_search.js");
 
 /***/ }),
 
@@ -37318,6 +37336,66 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/new_input.js":
+/*!***********************************!*\
+  !*** ./resources/js/new_input.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".btn-success").click(function () {
+    var html = $(".clone").html();
+    $(".increment").after(html);
+  });
+  $("body").on("click", ".btn-danger", function () {
+    $(this).parents(".control-group").remove();
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/lib/submit_search.js":
+/*!****************************************!*\
+  !*** ./resources/lib/submit_search.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  SMSemec.submitSearch();
+});
+
+SMSemec.submitSearch = function () {
+  var el = 'input.enter-to-submit-search';
+  var btn = '.submit-search';
+  var base_url = $(el).data('base-url');
+
+  var requestSearch = function requestSearch() {
+    var term = $(el).val();
+    var url = base_url;
+
+    if (term && term.trim().length) {
+      url += '/search/' + encodeURI(term);
+    }
+
+    return window.location.assign(url);
+  };
+
+  $(btn).click(function () {
+    return requestSearch();
+  });
+  $(el).keypress(function (e) {
+    var keycode = e.keyCode || e.which;
+
+    if (keycode === 13) {
+      return requestSearch();
+    }
+  });
+};
 
 /***/ }),
 

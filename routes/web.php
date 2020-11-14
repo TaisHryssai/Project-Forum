@@ -28,3 +28,10 @@ Route::post('/topic/{id}/response/user', ['App\Http\Controllers\UserController',
 
 Route::get('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'new'])->name('new.response');
 Route::post('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'create'])->name('create.response');
+
+
+
+Route::get('/topic/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.topic.page');
+Route::get('/topic/search/{term}/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.search.topic.page');
+Route::get('/topic/search/{term?}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.search.topic');
+

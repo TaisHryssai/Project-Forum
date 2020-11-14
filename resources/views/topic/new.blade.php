@@ -42,26 +42,11 @@
 
 
 
-    <a class="btn btn-outline-primary" href="{{route('index.topic', $user->id)}}">Voltar</a>
+    <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
 
     <button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
 
 </form>
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".btn-success").click(function() {
-            var html = $(".clone").html();
-            $(".increment").after(html);
-        });
-        $("body").on("click", ".btn-danger", function() {
-            $(this).parents(".control-group").remove();
-        });
-    });
-</script>
 @endsection
