@@ -8,8 +8,7 @@
 'new_btn_name' => 'Adicionar Tópico']) @endcomponent
 
 <div class="table-responsive mt-3">
-@component('components.index.page_entries_info', ['entries' => $topics]) @endcomponent
-
+  @component('components.index.page_entries_info', ['entries' => $topics]) @endcomponent
   <table class="table">
     <thead>
       <tr>
@@ -23,12 +22,8 @@
       @each('topic._topic_row', $topics, 'topic')
     </tbody>
   </table>
-
-
   <div class="mt-5 float-right flex-wrap">
     {!! $topics->links() !!}
   </div>
-
 </div>
-
 @endsection

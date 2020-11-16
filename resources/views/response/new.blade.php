@@ -29,7 +29,7 @@
   'errors' => $errors]) @endcomponent
 
 
-  <div class="input-group control-group increment">
+  <div class="input-group control-group increment mb-2">
     <input type="file" name="attachments[]" class="form-control">
     <div class="input-group-btn">
       <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
@@ -43,13 +43,7 @@
       </div>
     </div>
   </div>
-
-
-  <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
-
-  <button type="submit" class="btn btn-primary" style="margin-left: 82%">Responder Tópico</button>
-
+  @component('components.form.input_submit',['value' => 'Responder Tópico', 'back_url' => route('index.topic')]) @endcomponent
 </form>
-
 
 @endsection

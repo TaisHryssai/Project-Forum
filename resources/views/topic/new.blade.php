@@ -45,6 +45,7 @@
     <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
 
     <button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
+    @component('components.form.input_submit',['value' => 'Criar Tópico', 'back_url' => route('index.topic')]) @endcomponent
 
 </form>
 

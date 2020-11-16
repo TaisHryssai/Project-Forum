@@ -23,9 +23,11 @@
 
 @each('response._response_row', $topic->responses, 'response')
 
-
-<a class="btn btn-outline-primary" href="{{route('index.topic', $user->id)}}">Voltar</a>
-
-<a class="btn btn-outline-success" href="{{route('new.user.response', $topic->id)}}" style="margin-left:88%">Responder Tópico</a>
+<div class="form-footer">
+  <div class="d-flex">
+    <a class="btn btn-secondary" href="{{ route('index.topic') }}">Voltar</a>
+    <a class="btn btn-primary ml-auto" href="{{ route('new.user.response', $topic->id) }}">Responder</a>
+  </div>
+</div>
 
 @endsection

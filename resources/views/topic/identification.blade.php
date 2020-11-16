@@ -3,18 +3,16 @@
 @section('title', 'Identificação usuário')
 @section('content')
 
-<form class="class-form" action="{{ route('create.user') }}" method="POST"  novalidate>
+<form class="class-form" action="{{ route('create.user') }}" method="POST" novalidate>
     @csrf
-        @component('components.form.input_text', ['field'    => 'name',
-                                              'label'    => 'Identificação',
-                                              'placeholder' => 'Adicione seu nome/nickname',
-                                              'model'    => 'user',
-                                              'required' => true,
-                                              'errors'   => $errors]) @endcomponent
+    @component('components.form.input_text', ['field' => 'name',
+    'label' => 'Identificação',
+    'placeholder' => 'Adicione seu nome/nickname',
+    'model' => 'user',
+    'required' => true,
+    'errors' => $errors]) @endcomponent
 
-
-        <button type="submit" class="btn btn-outline-secondary">Cadastrar Identificação</button>
-
+    @component('components.form.input_submit',['value' => 'Criar', 'back_url' => route('index.topic')]) @endcomponent
 </form>
 
 @endsection

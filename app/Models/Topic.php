@@ -39,22 +39,11 @@ class Topic extends Model
     public static function search($term)
     {
         if ($term) {
-            dd($term);exit;
             $searchTerm = "%{$term}%";
-            return Topic::where('title', 'LIKE', $searchTerm)
+            return Topic::where('title', 'LIKE', $searchTerm)->orWhere('keywords', 'LIKE', $searchTerm)
                 ->orderBy('created_at', 'desc')
-                ->paginate(2);
+                ->paginate(5);
         }
-        return Topic::orderBy('created_at', 'desc')->paginate(2);
-    }
-
-    /**
-     * @return $this
-     */
-    public function saveWithoutEvents(array $options = [])
-    {
-        return static::withoutEvents(function () use ($options) {
-            return $this->save($options);
-        });
+        return Topic::orderBy('created_at', 'desc')->paginate(5);
     }
 }

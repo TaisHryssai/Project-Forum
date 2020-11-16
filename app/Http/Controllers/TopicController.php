@@ -10,50 +10,48 @@ use Illuminate\Support\Facades\Validator;
 
 class TopicController extends Controller
 {
-	public function index()
-	{
+    public function index()
+    {
         $search = Request()->term;
         $topics = Topic::search($search);
         return view('topic.index')->with('topics', $topics);
-	}
+    }
 
     public function new($id)
     {
         $user = User::find($id);
-		$topic = new Topic();
-    	return view('topic.new', compact('user'));
-	}
-	
-	public function create(Request $request, $id)
-	{
-		$datas = $request->all();
-		$user = User::find($id);
-		$topic = new Topic();
+        $topic = new Topic();
+        return view('topic.new', compact('user'));
+    }
+
+    public function create(Request $request, $id)
+    {
+        $datas = $request->all();
+        $user = User::find($id);
+        $topic = new Topic();
 
 
-		$validator = Validator::make($datas, [
+        $validator = Validator::make($datas, [
             'title'       => 'required',
-			'content' => 'required',
-			'keywords' => 'required',
-			'attachments.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
-		]);
+            'content' => 'required',
+            'keywords' => 'required',
+            'attachments.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
 
-		if ($validator->fails()) {
+        if ($validator->fails()) {
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
-			return view('topic.new', compact('topic', 'user'))->withErrors($validator);
-		}
+            return view('topic.new', compact('topic', 'user'))->withErrors($validator);
+        }
 
 
-		if($request->hasfile('attachments'))
-        {
-            foreach($request->file('attachments') as $image)
-            {
-                $name=$image->getClientOriginalName();
+        if ($request->hasfile('attachments')) {
+            foreach ($request->file('attachments') as $image) {
+                $name = $image->getClientOriginalName();
                 $image->move(public_path('images'), $name);  // your folder path
-                $data[] = $name;  
+                $data[] = $name;
             }
         }
-    
+
         $topic->attachments = json_encode($data);
         $topic->title = $request->title;
         $topic->content = $request->content;
@@ -61,16 +59,16 @@ class TopicController extends Controller
         $topic->keywords = $request->keywords;
         $topic->save();
 
-       //$user->topic()->save($topic);
+        //$user->topic()->save($topic);
         return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
-	}
+    }
 
     public function show($id)
     {
-		$topic = Topic::find($id);
+        $topic = Topic::find($id);
         $user = $topic->user;
-		$response = Response::find($id);
-		
+        $response = Response::find($id);
+
         return view('topic.show', compact('topic', 'response', 'user'));
     }
 }
