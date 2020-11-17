@@ -1,10 +1,10 @@
-<div class="fixed-top header py-2" style="background-color: white;">
+<div class="fixed-top header py-2">
   <div class="container-fluid">
     <div class="d-flex">
       <a class="" href="{{route('index.topic')}}">
-        <img src="{{ asset('assets/images/forum-icon.png') }}" class="header-brand-img" alt="tabler logo" style="width: 15%;">
+        <img src="{{ asset('assets/images/forum-icon.png') }}" class="header-brand-img" alt="logo">
       </a>
-      <span class="mt-1 text-muted font-weight-bold" style="margin-left: 80%;">
+      <span class="mt-1 ml-4 text-muted font-weight-bold">
         FORUM TEC
       </span>
     </div>

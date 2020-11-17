@@ -12,14 +12,14 @@
     <strong> <span>Palavras-chave: </strong> {{ $topic->keywords }}</span>
     <p class="card-text">Anexos: <a href=""></a></p>
     <?php foreach (json_decode($topic->attachments) as $picture) { ?>
-      <img src="{{ asset('/images/'.$picture) }}" style="height:120px; width:200px" />
+      <img src="{{ asset('/images/'.$picture) }}" class="image-topic" />
       <a href="">{{$picture}}</a>
     <?php } ?>
   </div>
 </div>
 
 
-<h3>Respostas:</h3>
+<h3 class="text-muted font-weight-bold">Respostas:</h3>
 
 @each('response._response_row', $topic->responses, 'response')
 

@@ -181,7 +181,8 @@ return [
         'year'      => 'ano',
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
-        'content ' => 'conteúdo'
+        'content' => 'conteúdo',
+        'keywords' => 'palavras-chave'
     ],
 
 ];

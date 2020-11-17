@@ -59,7 +59,6 @@ class TopicController extends Controller
         $topic->keywords = $request->keywords;
         $topic->save();
 
-        //$user->topic()->save($topic);
         return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
     }
 

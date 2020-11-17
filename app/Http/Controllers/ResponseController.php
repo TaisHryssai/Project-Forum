@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ResponseController extends Controller
 {
-    // id do usuario pra fazer ligamento do topico com usuário
     public function new($id, $topic_id)
     {
         $user = User::find($id);
@@ -36,7 +35,6 @@ class ResponseController extends Controller
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
 			return view('topic.new', compact('reponse'))->withErrors($validator);
 		}
-
 
 		if($request->hasfile('attachments'))
         {

@@ -1,19 +1,36 @@
-.layout-identification {
-    margin: 10% 12% 0% 20%;
-}
-
-.page-title {
-    text-align: center;
-}
-
-.class-form {
-    margin: 2% 20%;
-}
-
-.btn-outline-secondary {
-    margin-left: 88%;
+//style body 
+body{
+    background-color: #F8F9F9;
 }
 
 .card-color {
     background-color: #D6EAF8;
 }
+
+.page-title {
+    text-align: center;
+}
+// --- //
+
+// header 
+.header-brand-img{
+    width: 45px;
+}
+
+.fixed-top{
+    background-color: white;
+}
+// --- //
+
+// forms
+.class-form {
+    margin: 2% 20%;
+}
+// --- //
+
+// image topic
+.image-topic{
+    height:120px;
+    width:200px;
+}
+// --- //

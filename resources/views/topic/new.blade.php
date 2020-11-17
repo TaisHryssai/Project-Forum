@@ -31,8 +31,8 @@
             <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
         </div>
     </div>
-    <div class="clone hide">
-        <div class="control-group input-group" style="margin-top:10px">
+    <div class="clone hide mb-5">
+        <div class="control-group input-group mt-3">
             <input type="file" name="attachments[]" class="form-control">
             <div class="input-group-btn">
                 <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
@@ -40,14 +40,7 @@
         </div>
     </div>
 
-
-
-    <a class="btn btn-outline-primary" href="{{route('index.topic')}}">Voltar</a>
-
-    <button type="submit" class="btn btn-primary" style="margin-left: 82%">Criar Tópico</button>
     @component('components.form.input_submit',['value' => 'Criar Tópico', 'back_url' => route('index.topic')]) @endcomponent
 
 </form>
-
-
 @endsection

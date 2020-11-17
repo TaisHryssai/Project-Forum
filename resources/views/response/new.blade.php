@@ -12,7 +12,7 @@
     <strong> <span>Palavras-chave: </strong> {{ $topic->keywords }}</span>
     <p class="card-text">Anexos: <a href=""></a></p>
     <?php foreach (json_decode($topic->attachments) as $picture) { ?>
-      <img src="{{ asset('/images/'.$picture) }}" style="height:120px; width:200px" />
+      <img src="{{ asset('/images/'.$picture) }}" class="image-topic" />
       <a href="">{{$picture}}</a>
     <?php } ?>
   </div>
@@ -28,7 +28,6 @@
   'required' => true,
   'errors' => $errors]) @endcomponent
 
-
   <div class="input-group control-group increment mb-2">
     <input type="file" name="attachments[]" class="form-control">
     <div class="input-group-btn">
@@ -36,7 +35,7 @@
     </div>
   </div>
   <div class="clone hide">
-    <div class="control-group input-group" style="margin-top:10px">
+    <div class="control-group input-group mt-2 mb-4">
       <input type="file" name="attachments[]" class="form-control">
       <div class="input-group-btn">
         <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
