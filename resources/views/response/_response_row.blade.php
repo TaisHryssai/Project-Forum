@@ -5,7 +5,6 @@
         <p class="card-text">{{$response->content}}</p>
 		<?php foreach (json_decode($response->attachments) as $picture) { ?>
       <img src="{{ asset('/images/'.$picture) }}" class="image-topic" />
-      <a href="">{{$picture}}</a>
     <?php } ?>
 	</div>
 </div>

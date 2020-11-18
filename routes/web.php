@@ -32,6 +32,3 @@ Route::post('/topic/{id}/response/user', ['App\Http\Controllers\UserController',
 
 Route::get('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'new'])->name('new.response');
 Route::post('/user/{user_id}/topic/{id}/response', ['App\Http\Controllers\ResponseController', 'create'])->name('create.response');
-
-
-

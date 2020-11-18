@@ -1,2 +1,2 @@
-window.SMSemec = {};
-window.SMSemec.classes = {};
+window.Forum = {};
+window.Forum.classes = {};

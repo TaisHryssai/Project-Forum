@@ -1,8 +1,8 @@
 $(document).ready(() => {
-  SMSemec.submitSearch();
+  Forum.submitSearch();
 });
 
-SMSemec.submitSearch = function() {
+Forum.submitSearch = function() {
   const el = 'input.enter-to-submit-search';
   const btn = '.submit-search';
   const base_url = $(el).data('base-url');

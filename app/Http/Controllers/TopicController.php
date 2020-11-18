@@ -35,7 +35,7 @@ class TopicController extends Controller
             'title'       => 'required',
             'content' => 'required',
             'keywords' => 'required',
-            'attachments.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'attachments.*' => 'mimes:jpeg,png,jpg|max:2048'
         ]);
 
         if ($validator->fails()) {
@@ -47,7 +47,7 @@ class TopicController extends Controller
         if ($request->hasfile('attachments')) {
             foreach ($request->file('attachments') as $image) {
                 $name = $image->getClientOriginalName();
-                $image->move(public_path('images'), $name);  // your folder path
+                $image->move(public_path('images'), $name);
                 $data[] = $name;
             }
         }

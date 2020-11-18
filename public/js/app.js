@@ -37272,8 +37272,8 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-window.SMSemec = {};
-window.SMSemec.classes = {};
+window.Forum = {};
+window.Forum.classes = {};
 
 /***/ }),
 
@@ -37366,10 +37366,10 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  SMSemec.submitSearch();
+  Forum.submitSearch();
 });
 
-SMSemec.submitSearch = function () {
+Forum.submitSearch = function () {
   var el = 'input.enter-to-submit-search';
   var btn = '.submit-search';
   var base_url = $(el).data('base-url');

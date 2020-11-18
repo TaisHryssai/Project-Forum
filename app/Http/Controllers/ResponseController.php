@@ -24,16 +24,16 @@ class ResponseController extends Controller
 		$datas = $request->all();
 		$user = User::find($id);
 		$topic = Topic::find($topic_id);
-        $reponse = new Response();
+        $response = new Response();
         
 		$validator = Validator::make($datas, [
 			'content' => 'required',
-			'attachments.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
+			'attachments.*' => 'mimes:jpeg,png,jpg|max:2048'
 		]);
 
 		if ($validator->fails()) {
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
-			return view('topic.new', compact('reponse'))->withErrors($validator);
+			return view('topic.new', compact('response', 'user', 'topic'))->withErrors($validator);
 		}
 
 		if($request->hasfile('attachments'))
@@ -46,11 +46,11 @@ class ResponseController extends Controller
             }
         }
         
-        $reponse->attachments = json_encode($data);
-        $reponse->content = $request->content;
-        $reponse->user_id = $user->id;
-        $reponse->topic_id = $topic->id;
-        $reponse->save();
+        $response->attachments = json_encode($data);
+        $response->content = $request->content;
+        $response->user_id = $user->id;
+        $response->topic_id = $topic->id;
+        $response->save();
 
         return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
 	}
