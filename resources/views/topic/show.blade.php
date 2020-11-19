@@ -10,13 +10,17 @@
     <h4 class="card-title">Descrição:</h4>
     <p class="card-text">{{ $topic->content }}</p>
     <strong> <span>Palavras-chave: </strong></span>
-    <span class="badge badge-info">{{ $topic->keywords }}</span>
 
+   <?php foreach (json_decode($topic->keywords) as $picture) { ?>
+    <span class="badge badge-info">{{ $picture }}</span>
+    <?php } ?>
+
+    @if($topic->attachments)
     <p class="card-text">Anexos: <a href=""></a></p>
     <?php foreach (json_decode($topic->attachments) as $picture) { ?>
       <img src="{{ asset('/images/'.$picture) }}" class="image-topic" />
     <?php } ?>
-
+    @endif
   </div>
 </div>
 

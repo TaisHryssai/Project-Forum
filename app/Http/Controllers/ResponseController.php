@@ -27,7 +27,8 @@ class ResponseController extends Controller
         $response = new Response();
         
 		$validator = Validator::make($datas, [
-			'content' => 'required',
+            'content' => 'required',
+            'attachments' => 'required',
 			'attachments.*' => 'mimes:jpeg,png,jpg|max:2048'
 		]);
 

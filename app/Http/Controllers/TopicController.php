@@ -50,13 +50,18 @@ class TopicController extends Controller
                 $image->move(public_path('images'), $name);
                 $data[] = $name;
             }
+        $topic->attachments = json_encode($data);
         }
 
-        $topic->attachments = json_encode($data);
+        foreach($request->keywords as $keyword){
+            $key[] = $keyword;
+        }
+
+
         $topic->title = $request->title;
         $topic->content = $request->content;
         $topic->user_id = $user->id;
-        $topic->keywords = $request->keywords;
+        $topic->keywords = json_encode($key);
         $topic->save();
 
         return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
