@@ -19,36 +19,29 @@
             'required' => true,
             'errors' => $errors]) @endcomponent
 
+            @component('components.form.input_add_text', ['field' => 'keywords',
+            'label' => 'Palavras-Chave',
+            'placeholder' => 'Adicione uma palavra-chave por vez',
+            'classIncrement' => 'increment-keywords',
+            'idButtonAdd' => 'keywords-add',
+            'idCloneKeywords' => 'clone-keywords',
+            'divRemove' => 'form-keyword',
+            'idButtonRemove' => 'keywords-remove',
+            'model' => 'topic',
+            'required' => true,
+            'errors' => $errors]) @endcomponent
 
-    <div class="input-group control-group increment-keywords">
-        <input type="text" name="keywords[]" class="form-control form-keywords">
-        <div class="input-group-btn">
-            <button class="btn btn-success" id="keywords-add" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
-        </div>
-    </div>
-    <div class="hide mb-5" id="clone-keywords">
-        <div class="control-group control-keywords input-group mt-3">
-            <input type="text" name="keywords[]" class="form-control" id="form-keyword">
-            <div class="input-group-btn">
-                <button class="btn btn-danger" id="keywords-remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group control-group increment">
-        <input type="file" name="attachments[]" class="form-control">
-        <div class="input-group-btn">
-            <button class="btn btn-success" id="add-attachments" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
-        </div>
-    </div>
-    <div class="hide mb-5" id="clone">
-        <div class="control-group input-group mt-3">
-            <input type="file" name="attachments[]" class="form-control">
-            <div class="input-group-btn">
-                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-            </div>
-        </div>
-    </div>
+            @component('components.form.input_add_file', ['field' => 'attachments',
+            'label' => 'Anexos',
+            'classIncrement' => 'increment',
+            'idButtonAdd' => 'add-attachments',
+            'idCloneKeywords' => 'clone',
+            'divRemove' => 'control-group',
+            'idButtonRemove' => 'btn-danger',
+            'model' => 'topic',
+            'required' => true,
+            'errors' => $errors]) @endcomponent
+           
 
     @component('components.form.input_submit',['value' => 'Criar Tópico', 'back_url' => route('index.topic')]) @endcomponent
 

@@ -34,7 +34,7 @@ class ResponseController extends Controller
 
 		if ($validator->fails()) {
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
-			return view('topic.new', compact('response', 'user', 'topic'))->withErrors($validator);
+			return view('response.new', compact('response', 'user', 'topic'))->withErrors($validator);
 		}
 
 		if($request->hasfile('attachments'))

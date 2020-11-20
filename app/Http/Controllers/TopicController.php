@@ -34,7 +34,7 @@ class TopicController extends Controller
         $validator = Validator::make($datas, [
             'title'       => 'required',
             'content' => 'required',
-            'keywords' => 'required',
+            'keywords.*' => 'required|single_word',
             'attachments.*' => 'mimes:jpeg,png,jpg|max:2048'
         ]);
 

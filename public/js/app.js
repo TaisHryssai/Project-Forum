@@ -37351,8 +37351,8 @@ $(document).ready(function () {
     var html = $("#clone").html();
     $(".increment").after(html);
   });
-  $("body").on("click", ".btn-danger", function () {
-    $(this).parents(".control-group").remove();
+  $("body").on("click", "#btn-danger", function () {
+    $(this).parents("#control-group").remove();
   });
 });
 $(document).ready(function () {
