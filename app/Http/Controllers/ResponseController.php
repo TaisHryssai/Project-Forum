@@ -25,7 +25,7 @@ class ResponseController extends Controller
 		$user = User::find($id);
 		$topic = Topic::find($topic_id);
         $response = new Response();
-        
+
 		$validator = Validator::make($datas, [
             'content' => 'required',
             'attachments' => 'required',
@@ -43,10 +43,10 @@ class ResponseController extends Controller
             {
                 $name=$image->getClientOriginalName();
                 $image->move(public_path('images'), $name);
-                $data[] = $name;  
+                $data[] = $name;
             }
         }
-        
+
         $response->attachments = json_encode($data);
         $response->content = $request->content;
         $response->user_id = $user->id;

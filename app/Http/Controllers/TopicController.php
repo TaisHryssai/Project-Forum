@@ -34,10 +34,11 @@ class TopicController extends Controller
         $validator = Validator::make($datas, [
             'title'       => 'required',
             'content' => 'required',
-            'keywords.*' => 'required|single_word',
+            'keywords' => 'required',
             'attachments.*' => 'mimes:jpeg,png,jpg|max:2048'
         ]);
 
+        $topic->fill($datas);
         if ($validator->fails()) {
             $request->session()->flash('danger', 'Existem dados incorretos! Por favor verifique!');
             return view('topic.new', compact('topic', 'user'))->withErrors($validator);
