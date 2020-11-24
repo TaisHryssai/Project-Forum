@@ -11,14 +11,15 @@
     <p class="card-text">{{ $topic->content }}</p>
     <strong> <span>Palavras-chave: </strong></span>
 
+    @if($topic->keywords)
     <?php foreach (json_decode($topic->keywords) as $picture) { ?>
       <span class="badge badge-info">{{ $picture }}</span>
     <?php } ?>
+   @endif
     @if($topic->attachments)
     <p class="card-text">Anexos: <a href=""></a></p>
     <?php foreach (json_decode($topic->attachments) as $picture) { ?>
       <img src="{{ asset('/images/'.$picture) }}" class="image-topic" />
-      <a href="">{{$picture}}</a>
     <?php } ?>
     @endif
   </div>

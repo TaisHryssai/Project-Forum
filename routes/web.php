@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', ['App\Http\Controllers\UserController', 'new'])->name('new.user');
 Route::post('/user', ['App\Http\Controllers\UserController', 'create'])->name('create.user');
 
-Route::get('/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.topic.page');
+Route::get('/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('topic.page');
 Route::get('/', ['App\Http\Controllers\TopicController', 'index'])->name('index.topic');
-Route::get('/search/{term}/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.search.topic.page');
-Route::get('/search/{term}', ['App\Http\Controllers\TopicController', 'index'])->name('admin.search.topics');
+Route::get('/search/{term}/page/{page}', ['App\Http\Controllers\TopicController', 'index'])->name('search.topic.page');
+Route::get('/search/{term}', ['App\Http\Controllers\TopicController', 'index'])->name('search.topics');
 
 Route::get('/user/{id}/topic/new', ['App\Http\Controllers\TopicController', 'new'])->name('new.topic');
 Route::post('/user/{id}/topic/new', ['App\Http\Controllers\TopicController', 'create'])->name('create.topic');

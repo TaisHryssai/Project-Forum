@@ -53,6 +53,6 @@ class ResponseController extends Controller
         $response->topic_id = $topic->id;
         $response->save();
 
-        return redirect()->route('index.topic')->with('success', 'Tópico adicionado com sucesso');
+        return redirect()->route('index.topic')->with('success', 'Resposta adicionada com sucesso ao tópico');
 	}
 }
